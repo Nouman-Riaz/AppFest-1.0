@@ -109,8 +109,17 @@ public class QuranDAO extends SQLiteAssetHelper {
         if (cursorAyat.moveToFirst()) {
             do {
                 int arabic = cursorAyat.getColumnIndex(ARABIC);
-                int translateEng = cursorAyat.getColumnIndex(TRANSLATE[TranslationEng]);
-                int translateUrdu = cursorAyat.getColumnIndex(TRANSLATE[TranslationUrdu+2]);
+                int translateEng;
+                if(TranslationEng != 2)
+                    translateEng = cursorAyat.getColumnIndex(TRANSLATE[TranslationEng]);
+                else
+                    translateEng = -1;
+
+                int translateUrdu;
+                if(TranslationUrdu != 2)
+                    translateUrdu = cursorAyat.getColumnIndex(TRANSLATE[TranslationUrdu+2]);
+                else
+                    translateUrdu = -1;
                 int num = cursorAyat.getColumnIndex("AyaNo");
                 int ayaNo = cursorAyat.getInt(num);
                 int surah = cursorAyat.getColumnIndex(SURAH_ID);
@@ -121,7 +130,9 @@ public class QuranDAO extends SQLiteAssetHelper {
 
                 int bookMarkCol = cursorAyat.getColumnIndex(BOOKMARK);
                 boolean bookmark = cursorAyat.getInt(bookMarkCol) != 0;
-                ayatArrayList.add(new Ayat(cursorAyat.getString(arabic),cursorAyat.getString(translateEng),cursorAyat.getString(translateUrdu),ayaNo,cursorAyat.getInt(surah),bookmark));
+                String engTranslation = translateEng == -1? "": cursorAyat.getString(translateEng);
+                String urduTranslation = translateUrdu == -1? "": cursorAyat.getString(translateUrdu);
+                ayatArrayList.add(new Ayat(cursorAyat.getString(arabic),engTranslation,urduTranslation,ayaNo,cursorAyat.getInt(surah),bookmark));
             } while (cursorAyat.moveToNext());
 
         }

@@ -6,4 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".BookmarkActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/title_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title="@string/bookmarks"
+        app:titleTextColor="@color/cardview_light_background"
+        android:background="@color/primary_dark" />
+
+    <ListView
+        android:id="@+id/listBookmarks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_new"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookmark_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/title_new"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

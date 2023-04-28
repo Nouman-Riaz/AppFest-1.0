@@ -27,6 +27,11 @@ public class RecyclerAdapterSurah extends RecyclerView.Adapter<RecyclerAdapterSu
         translateUrdu = urdu;
     }
 
+    public void setFilterList(List<SurahNames> filterList){
+        this.surahNamesList = filterList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public SurahViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -3,6 +3,7 @@ package com.example.appfestquranapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -21,13 +22,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +33,14 @@ public class SuratActivity extends AppCompatActivity {
     // creating a new array list.
     ArrayList<String> coursesArrayList;
 
-    // creating a variable for database reference.
-    DatabaseReference reference;
+    RecyclerAdapterSurah recyclerAdapter;
 
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
+
+    List<SurahNames> array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +85,7 @@ public class SuratActivity extends AppCompatActivity {
                 listOfRadioButtonsUrdu.add((RadioButton)o);
             }
         }
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -146,15 +142,50 @@ public class SuratActivity extends AppCompatActivity {
             }
         });
 
-        QuranDAO quranDAO = new QuranDAO(SuratActivity.this);
-        List<SurahNames> array = quranDAO.getSurahNames();
+        SearchView searchView = findViewById(R.id.search_view);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
 
+        QuranDAO quranDAO = new QuranDAO(SuratActivity.this);
+        array = quranDAO.getSurahNames();
+
+        Toast.makeText(SuratActivity.this, Integer.toString(translateEng[0]), Toast.LENGTH_SHORT).show();
         RecyclerView recyclerView = findViewById(R.id.surah_recycler_view);
-        RecyclerAdapterSurah recyclerAdapter = new RecyclerAdapterSurah(SuratActivity.this, array, translateEng[0], translateUrdu[0]);
+        recyclerAdapter = new RecyclerAdapterSurah(SuratActivity.this, array, translateEng[0], translateUrdu[0]);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SuratActivity.this);
 
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setLayoutManager(layoutManager);
 
+    }
+
+    private void filterList(String text) {
+        List<SurahNames> filteredList = new ArrayList<>();
+//        for (int i = 0; i < array.size(); i++) {
+//            if(array.get(i).getUrdu().toLowerCase().contains(text.toLowerCase())){
+//                filteredList.add(array.get(i));
+//            }
+//        }
+        for (SurahNames surahNames : array){
+            if(surahNames.getEng().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(surahNames);
+            }
+        }
+        if(filteredList.isEmpty()){
+            Toast.makeText(this,"No data Found",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            recyclerAdapter.setFilterList(filteredList);
+        }
     }
 }
