@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppFestQuranApplication"
         tools:targetApi="31">
         <activity
+            android:name=".VerseActivity"
+            android:exported="false" />
+        <activity
             android:name=".SuratActivity"
             android:exported="false" />
         <activity

@@ -20,4 +20,6 @@
     <string name="add_student">Add Student</string>
     <string name="logout">Logout</string>
     <string name="user">Account</string>
+    <string name="open">Opening</string>
+    <string name="close">Closing</string>
 </resources>
