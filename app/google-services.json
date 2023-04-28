@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "434837412629",
+    "project_id": "appfestquran",
+    "storage_bucket": "appfestquran.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434837412629:android:0072c0139ecd79247fa71c",
+        "android_client_info": {
+          "package_name": "com.example.appfestquranapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434837412629-8vafq78gjjp947qlm3rgrpu7jarf2ub9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1ySb0iJjzUu-ori-qh1SuIQNLi98nLA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434837412629-8vafq78gjjp947qlm3rgrpu7jarf2ub9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
