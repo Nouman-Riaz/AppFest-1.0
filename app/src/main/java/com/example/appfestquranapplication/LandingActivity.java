@@ -79,6 +79,9 @@ public class LandingActivity extends AppCompatActivity {
             }
         }
 
+        listOfRadioButtonsEng.get(0).setChecked(true);
+        listOfRadioButtonsUrdu.get(0).setChecked(true);
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 

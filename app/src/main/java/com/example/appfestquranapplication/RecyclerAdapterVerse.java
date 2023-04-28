@@ -18,6 +18,11 @@ public class RecyclerAdapterVerse extends RecyclerView.Adapter<RecyclerAdapterVe
     List<Ayat> ayatList;
     Context context;
 
+    public void setFilterList(List<Ayat> filterList){
+        this.ayatList = filterList;
+        notifyDataSetChanged();
+    }
+
     public RecyclerAdapterVerse(Context context, List<Ayat> ayatList){
         this.context = context;
         this.ayatList = ayatList;
