@@ -21,6 +21,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -137,7 +138,8 @@ public class SuratActivity extends AppCompatActivity {
                     startActivity(intent);
                     drawerLayout.closeDrawer(GravityCompat.START);
                 } else if (itemId == R.id.logout) {
-                    intent = new Intent(SuratActivity.this, LoginActivity.class);
+                    FirebaseAuth.getInstance().signOut();
+                    intent = new Intent(SuratActivity.this, MainActivity.class);
                     startActivity(intent);
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }

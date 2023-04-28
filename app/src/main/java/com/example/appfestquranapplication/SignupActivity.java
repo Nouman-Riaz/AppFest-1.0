@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SignupActivity extends AppCompatActivity {
@@ -80,13 +81,15 @@ public class SignupActivity extends AppCompatActivity {
 //                                    Log.d(TAG, "createUserWithEmail:success");
                                     Toast.makeText(SignupActivity.this, "Account Created.",
                                             Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), SuratActivity.class);
+                                    startActivity(intent);
+                                    finish();
 
                                 } else {
-                                    // If sign in fails, display a message to the user.
-//                                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(SignupActivity.this, "Account not created",
-                                            Toast.LENGTH_SHORT).show();
-
+                                    FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                                    Toast.makeText(SignupActivity.this, "Failed Registration: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Log.e("LoginActivity", "Failed Registration", e);
+                                    return;
                                 }
                             }
                         });
