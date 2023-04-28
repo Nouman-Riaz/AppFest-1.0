@@ -28,6 +28,10 @@
                     android:id="@+id/add_student"
                     android:title="@string/add_student" />
 
+                <item
+                    android:id="@+id/view_courses"
+                    android:title="@string/view_courses" />
+
             </group>
         </menu>
     </item>
