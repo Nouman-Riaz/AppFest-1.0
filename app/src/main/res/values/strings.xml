@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">App Fest Quran Application</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_up">Sign Up</string>
+    <string name="prompt_name">Full Name</string>
+    <string name="readabilityEng">English Translations</string>
+    <string name="readabilityUrdu">Urdu Translations</string>
+    <string name="translation_english">Translation English</string>
+    <string name="translation_urdu">Translation Urdu</string>
+    <string name="learn_quran">Learn Quran at your own pace</string>
+    <string name="quran_translation">Quran Translation</string>
+    <string name="new_version">New Version</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="surah_list">Surah List</string>
+    <string name="reading">Reading</string>
+    <string name="learning">Learning</string>
+    <string name="create_course">Create Course</string>
+    <string name="add_student">Add Student</string>
+    <string name="logout">Logout</string>
+    <string name="user">Account</string>
+    <string name="open">Opening</string>
+    <string name="close">Closing</string>
+    <string name="view_courses">View Courses</string>
+    <string name="search">Search Surah</string>
 </resources>

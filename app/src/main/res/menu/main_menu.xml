@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="@string/reading">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/surah_list"
+                    android:title="@string/surah_list" />
+
+                <item
+                    android:id="@+id/bookmark_list"
+                    android:title="@string/bookmarks" />
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/learning">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/create_course"
+                    android:title="@string/create_course" />
+
+                <item
+                    android:id="@+id/add_student"
+                    android:title="@string/add_student" />
+
+                <item
+                    android:id="@+id/view_courses"
+                    android:title="@string/view_courses" />
+
+            </group>
+        </menu>
+    </item>
+
+
+    <item android:title="@string/readabilityUrdu">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/translate_urdu"
+                    app:actionLayout="@layout/translation_radio"
+                    android:title=""/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/readabilityEng">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/translate_eng"
+                    app:actionLayout="@layout/translation_radio"
+                    android:title="" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/user">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/logout"
+                    android:title="@string/logout" />
+            </group>
+        </menu>
+    </item>
+
+
+
+</menu>
