@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -21,13 +22,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.ktx.Firebase;
 
 public class SignupActivity extends AppCompatActivity {
-        TextInputEditText editTextEmail, editTextPassword, editTextUserName;
-        Button signup_button;
-        RadioGroup role;
-        FirebaseAuth mAuth;
+    EditText editTextEmail, editTextPassword, editTextUserName;
+    Button signup_button;
+    RadioGroup role;
+    FirebaseAuth mAuth;
     @Override
     public void onStart() {
         super.onStart();
@@ -51,14 +51,6 @@ public class SignupActivity extends AppCompatActivity {
         signup_button = findViewById(R.id.sign_up_button);
         role = findViewById(R.id.choose_role);
 
-        signup_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
         signup_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
